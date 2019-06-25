@@ -24,8 +24,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Device
 $(call inherit-product, device/motorola/payton/device.mk)
 
-# A/B updater
+#CAF prop CAF includes
+include device/qcom/common/common.mk
+
+# A/B updater Wpa will crash without this.
 AB_OTA_UPDATER := true
+DISABLE_EAP_PROXY := true
 
 AB_OTA_PARTITIONS += \
     boot \
